@@ -1,0 +1,84 @@
+﻿@model ClinicPatientVisitMonitoringSystem.Models.PatientVisit
+
+@{
+    ViewData["Title"] = "Patient Visit Details";
+}
+
+<div class="container mt-4">
+
+    <h1>Patient Visit Details</h1>
+
+    <div class="card mt-4">
+
+        <div class="card-body">
+
+            <dl class="row">
+
+                <dt class="col-sm-3">
+                    Patient Name
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Model.PatientName
+                </dd>
+
+
+                <dt class="col-sm-3">
+                    Doctor
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Model.DoctorName
+                </dd>
+
+
+                <dt class="col-sm-3">
+                    Visit Date
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Model.VisitDate.ToString("yyyy-MM-dd")
+                </dd>
+
+
+                <dt class="col-sm-3">
+                    Reason
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Model.Reason
+                </dd>
+
+
+                <dt class="col-sm-3">
+                    Status
+                </dt>
+
+                <dd class="col-sm-9">
+                    @Model.Status
+                </dd>
+
+            </dl>
+
+            <div class="mt-3">
+
+                <a asp-controller="PatientVisit"
+                   asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-warning">
+                    Edit
+                </a>
+
+                <a asp-controller="PatientVisit"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+                    Back to List
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

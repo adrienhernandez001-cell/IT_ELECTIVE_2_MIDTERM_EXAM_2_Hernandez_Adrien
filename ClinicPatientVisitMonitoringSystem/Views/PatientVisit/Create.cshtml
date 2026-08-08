@@ -1,0 +1,106 @@
+﻿@model ClinicPatientVisitMonitoringSystem.Models.PatientVisit
+
+@{
+    ViewData["Title"] = "Add Patient Visit";
+}
+
+<div class="container mt-4">
+
+    <h1>Add Patient Visit</h1>
+
+    <form asp-action="Create" method="post">
+
+        <div class="mb-3">
+            <label asp-for="PatientName" class="form-label">
+                Patient Name
+            </label>
+
+            <input asp-for="PatientName"
+                   class="form-control" />
+
+            <span asp-validation-for="PatientName"
+                  class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="DoctorName" class="form-label">
+                Doctor
+            </label>
+
+            <input asp-for="DoctorName"
+                   class="form-control" />
+
+            <span asp-validation-for="DoctorName"
+                  class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="VisitDate" class="form-label">
+                Visit Date
+            </label>
+
+            <input asp-for="VisitDate"
+                   type="date"
+                   class="form-control" />
+
+            <span asp-validation-for="VisitDate"
+                  class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Reason" class="form-label">
+                Reason
+            </label>
+
+            <textarea asp-for="Reason"
+                      class="form-control"
+                      rows="3"></textarea>
+
+            <span asp-validation-for="Reason"
+                  class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Status" class="form-label">
+                Status
+            </label>
+
+            <select asp-for="Status"
+                    class="form-select">
+
+                <option value="">-- Select Status --</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+
+            </select>
+
+            <span asp-validation-for="Status"
+                  class="text-danger"></span>
+        </div>
+
+
+        <button type="submit"
+                class="btn btn-primary">
+            Save
+        </button>
+
+        <a asp-controller="PatientVisit"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

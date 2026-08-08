@@ -1,0 +1,105 @@
+﻿@model ClinicPatientVisitMonitoringSystem.Models.PatientVisit
+
+@{
+    ViewData["Title"] = "Complete Consultation";
+}
+
+<div class="container mt-4">
+
+    <h1>Complete Consultation</h1>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <h5 class="card-title">
+                Confirm Consultation Completion
+            </h5>
+
+            <p>
+                Are you sure you want to mark this consultation as
+                completed?
+            </p>
+
+            <hr />
+
+            <dl class="row">
+
+                <dt class="col-sm-4">
+                    Visit Number
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.VisitNumber
+                </dd>
+
+
+                <dt class="col-sm-4">
+                    Patient
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.FirstName @Model.LastName
+                </dd>
+
+
+                <dt class="col-sm-4">
+                    Physician
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.Physician
+                </dd>
+
+
+                <dt class="col-sm-4">
+                    Visit Type
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.VisitType
+                </dd>
+
+
+                <dt class="col-sm-4">
+                    Arrival Time
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.ArrivalDateTime.ToString("yyyy-MM-dd HH:mm")
+                </dd>
+
+
+                <dt class="col-sm-4">
+                    Status
+                </dt>
+
+                <dd class="col-sm-8">
+                    @Model.Status
+                </dd>
+
+            </dl>
+
+            <form asp-action="CompleteConfirmed"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       asp-for="Id" />
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Mark as Completed
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>  
